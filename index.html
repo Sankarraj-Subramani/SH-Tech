@@ -1,886 +1,422 @@
-<script>
-        // Wait for DOM and all scripts to load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Feather icons only after the library is loaded
-            if (typeof feather !== 'undefined') {
-                feather.replace();
-            }
-
-            // Mobile menu functionality
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-            if (mobileMenuButton && mobileMenu && <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SH Tech - Global AI Innovation Institute</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #334155;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #64748b;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-        
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        
-        .nav-link {
-            color: #64748b;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            color: #667eea;
-            background: #f1f5f9;
-        }
-        
-        .nav-link.active {
-            color: #667eea;
-            font-weight: 600;
-        }
-        
-        .stats-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SH Tech - Global AI & Innovation Institute</title>
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --dark: #111;
+      --light: #f5f5f5;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* HEADER + NAVBAR */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    #mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100%;
+      background: var(--dark);
+      color: #fff;
+      padding: 2rem 1rem;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin-bottom: 2rem;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-menu ul li {
+      margin: 1.2rem 0;
+    }
+
+    .mobile-menu ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--light);
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #0c5ed9;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 2rem;
+      background: #fafafa;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      #mobile-menu-button {
+        display: block;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <i data-feather="cpu" class="h-6 w-6 text-white"></i>
-                        </div>
-                        <span class="ml-3 text-xl font-bold text-gray-900">SH Tech</span>
-                    </div>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link active">Home</a>
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#programs" class="nav-link">Programs</a>
-                        <a href="#projects" class="nav-link">Projects</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                        <a href="https://sankarraj-subramani.github.io/sankarraj-resume-website/" target="_blank" class="nav-link">Founder</a>
-                    </div>
-                </div>
-                
-                <div class="hidden md:block">
-                    <button class="btn-primary">
-                        <i data-feather="users" class="w-4 h-4"></i>
-                        Join Community
-                    </button>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button type="button" id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 focus:outline-none p-2">
-                        <i data-feather="menu" class="h-6 w-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 md:hidden" id="mobile-menu">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-8">
-                    <span class="text-xl font-bold text-gray-900">SH Tech</span>
-                    <button id="close-mobile-menu" class="text-gray-500">
-                        <i data-feather="x" class="h-6 w-6"></i>
-                    </button>
-                </div>
-                <nav class="space-y-4">
-                    <a href="#home" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">Home</a>
-                    <a href="#about" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">About</a>
-                    <a href="#programs" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">Programs</a>
-                    <a href="#projects" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">Projects</a>
-                    <a href="#contact" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">Contact</a>
-                    <a href="https://sankarraj-subramani.github.io/sankarraj-resume-website/" target="_blank" class="block py-3 px-4 text-gray-900 hover:bg-gray-50 rounded-lg">Founder</a>
-                    <button class="btn-primary w-full mt-4 justify-center">
-                        <i data-feather="users" class="w-4 h-4"></i>
-                        Join Community
-                    </button>
-                </nav>
-            </div>
-        </div>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>SH Tech</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#community">Join Community</a></li>
+      </ul>
+      <button id="mobile-menu-button">
+        <i data-feather="menu"></i>
+      </button>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-            <div class="text-center">
-                <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-8 fade-in">
-                    Global AI & Innovation Institute
-                </h1>
-                <p class="text-xl sm:text-2xl text-purple-100 mb-10 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                    Advancing AI education and open-source innovation worldwide through cutting-edge programs and community-driven initiatives.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 fade-in" style="animation-delay: 0.4s;">
-                    <a href="#programs" class="btn-primary text-lg px-8 py-4">
-                        <i data-feather="rocket" class="w-5 h-5"></i>
-                        Explore Programs
-                    </a>
-                    <a href="#contact" class="btn-secondary text-lg px-8 py-4 bg-white bg-opacity-20 border-white text-white hover:bg-white hover:text-purple-600">
-                        <i data-feather="message-circle" class="w-5 h-5"></i>
-                        Get Started
-                    </a>
-                </div>
-                
-                <!-- Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto fade-in" style="animation-delay: 0.6s;">
-                    <div class="text-center">
-                        <div class="stats-number text-white" data-target="5000">0</div>
-                        <div class="text-purple-200 text-lg">Students Mentored</div>
-                        <div class="text-purple-300 text-sm">Across 25+ countries</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-number text-white" data-target="50">0</div>
-                        <div class="text-purple-200 text-lg">Open Source Projects</div>
-                        <div class="text-purple-300 text-sm">Industry-adopted frameworks</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-number text-white" data-target="100">0</div>
-                        <div class="text-purple-200 text-lg">Success Rate</div>
-                        <div class="text-purple-300 text-sm">Career advancement</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="mobile-menu">
+    <button id="close-mobile-menu"><i data-feather="x"></i></button>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#community">Join Community</a></li>
+    </ul>
+  </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="section-subtitle">
-                    Making advanced technology accessible to everyone through world-class education, innovative frameworks, and transformative programs.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto">
-                        <i data-feather="users" class="h-6 w-6 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Free Career Guidance</h3>
-                    <p class="text-gray-600 mb-6">
-                        Personalized mentoring for students, professionals, and career changers in AI/ML and QA fields. Specialized STEM programs for kids aged 8-18.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            1-on-1 expert sessions
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Career roadmap planning
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Industry certifications
-                        </div>
-                    </div>
-                </div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h2>Global AI & Innovation Institute</h2>
+    <p>Advancing AI education and open-source innovation worldwide through cutting-edge programs and community-driven initiatives.</p>
+    <div class="btn-group">
+      <a href="#programs" class="btn">Explore Programs</a>
+      <a href="#contact" class="btn">Get Started</a>
+    </div>
+  </section>
 
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto">
-                        <i data-feather="code" class="h-6 w-6 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Open-Source Innovation</h3>
-                    <p class="text-gray-600 mb-6">
-                        Cutting-edge frameworks like AutoTestX and GenQAChat-RAG-AI, trusted by Fortune 500 companies and available freely to all developers.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Enterprise-grade solutions
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            24/7 community support
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Continuous updates
-                        </div>
-                    </div>
-                </div>
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <h3>5000+</h3>
+      <p>Students Mentored Across 25+ countries</p>
+    </div>
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Open Source Projects Industry-adopted</p>
+    </div>
+    <div class="stat">
+      <h3>100%</h3>
+      <p>Success Rate Career Advancement</p>
+    </div>
+  </div>
 
-                <div class="card p-8 text-center">
-                    <div class="feature-icon mx-auto">
-                        <i data-feather="globe" class="h-6 w-6 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Global Impact</h3>
-                    <p class="text-gray-600 mb-6">
-                        Strengthening workforce diversity, AI safety, and critical infrastructure resilience across 25+ countries through strategic partnerships.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            International partnerships
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Policy influence
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                            Sustainable development
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Our Mission</h2>
+    <p>Making advanced technology accessible to everyone through world-class education, innovative frameworks, and transformative programs.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Free Career Guidance</h3>
+        <p>Personalized mentoring for students, professionals, and career changers in AI/ML and QA fields. Specialized STEM programs for kids aged 8-18.</p>
+      </div>
+      <div class="card">
+        <h3>Open-Source Innovation</h3>
+        <p>Frameworks like AutoTestX and GenQAChat-RAG-AI, trusted by Fortune 500 companies and available freely to all developers.</p>
+      </div>
+      <div class="card">
+        <h3>Global Impact</h3>
+        <p>Strengthening workforce diversity, AI safety, and infrastructure resilience across 25+ countries through strategic partnerships.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Programs Section -->
-    <section id="programs" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                <div class="mb-12 lg:mb-0">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
-                        Our Programs
-                        <span class="block text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            Creating Pathways to Success
-                        </span>
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                        Through innovative workshops, global hackathons, and community initiatives, we're building the next generation of technology leaders worldwide.
-                    </p>
-                    
-                    <div class="space-y-6 mb-10">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-feather="zap" class="w-4 h-4 text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">AI/ML Mastery Track</h4>
-                                <p class="text-gray-600">Comprehensive curriculum covering machine learning, deep learning, and neural networks with hands-on projects.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-feather="shield" class="w-4 h-4 text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">QA Automation Excellence</h4>
-                                <p class="text-gray-600">Advanced testing frameworks, automation tools, and quality assurance best practices for modern applications.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <i data-feather="code" class="w-4 h-4 text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">Kids STEM Academy</h4>
-                                <p class="text-gray-600">Interactive STEM education for ages 8-18, fostering creativity and problem-solving through technology.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="btn-primary">
-                            <i data-feather="arrow-right" class="w-4 h-4"></i>
-                            View All Programs
-                        </a>
-                        <a href="#" class="btn-secondary">
-                            <i data-feather="download" class="w-4 h-4"></i>
-                            Download Brochure
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="card p-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-feather="users" class="w-6 h-6 text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Professional Mentorship</h3>
-                                <p class="text-gray-600 mb-4">
-                                    Guiding teams to solve real-world challenges in finance, healthcare, and aviation through AI-powered solutions.
-                                </p>
-                                <a href="#contact" class="text-blue-600 font-medium flex items-center">
-                                    Learn more
-                                    <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <h2>Our Programs Creating Pathways to Success</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>AI/ML Mastery Track</h3>
+        <p>Comprehensive curriculum covering ML, deep learning, and neural networks with projects.</p>
+      </div>
+      <div class="card">
+        <h3>QA Automation Excellence</h3>
+        <p>Advanced frameworks, automation tools, and QA practices for modern applications.</p>
+      </div>
+      <div class="card">
+        <h3>Kids STEM Academy</h3>
+        <p>Interactive STEM education for ages 8-18, fostering creativity and problem-solving.</p>
+      </div>
+    </div>
+  </section>
 
-                    <div class="card p-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-feather="trending-up" class="w-6 h-6 text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Career Development</h3>
-                                <p class="text-gray-600 mb-4">
-                                    Interactive workshops and community programs to advance your technical skills and accelerate career growth.
-                                </p>
-                                <a href="#contact" class="text-blue-600 font-medium flex items-center">
-                                    Learn more
-                                    <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Open Source & Global Initiatives</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Professional Mentorship</h3>
+        <p>Guiding teams to solve real-world challenges in finance, healthcare, and aviation.</p>
+      </div>
+      <div class="card">
+        <h3>Career Development</h3>
+        <p>Interactive workshops and programs to accelerate technical and career growth.</p>
+      </div>
+      <div class="card">
+        <h3>Global Hackathons</h3>
+        <p>Competitions where youth solve global problems using STEM skills worldwide.</p>
+      </div>
+    </div>
+  </section>
 
-                    <div class="card p-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i data-feather="git-branch" class="w-6 h-6 text-white"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Open Source Contributions</h3>
-                                <p class="text-gray-600 mb-4">
-                                    Contribute to frameworks adopted by regulated industries, accelerating innovation without barriers.
-                                </p>
-                                <a href="#contact" class="text-blue-600 font-medium flex items-center">
-                                    Learn more
-                                    <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOUNDER -->
+  <section id="founder">
+    <h2>Founder</h2>
+    <p>SH Tech was founded with a vision to make advanced technology accessible globally. The founder continues to guide initiatives that align with AI safety, diversity, and innovation.</p>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="section-title">Global Impact Initiatives</h2>
-                <p class="section-subtitle">
-                    Our programs align with global priorities in STEM education, AI safety, and infrastructure resilience across 25+ countries.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card p-8 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i data-feather="cpu" class="h-8 w-8 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Kids STEM Academy</h3>
-                    <p class="text-gray-600 mb-6">
-                        Free interactive STEM courses for kids aged 8-18, preparing the next generation of global innovators through hands-on learning.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Ages 8-18</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Free Access</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Interactive</span>
-                    </div>
-                    <a href="#contact" class="btn-primary">Learn More</a>
-                </div>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Join Our Global Community</h2>
+    <p>Connect with innovators, mentors, and changemakers who are shaping the future of technology.</p>
+    <div class="btn-group">
+      <a href="mailto:info@shtech.org" class="btn">Email Us</a>
+      <a href="https://discord.gg/" target="_blank" class="btn">Join Discord</a>
+    </div>
+  </section>
 
-                <div class="card p-8 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i data-feather="briefcase" class="h-8 w-8 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Workforce Readiness</h3>
-                    <p class="text-gray-600 mb-6">
-                        Comprehensive programs to prepare professionals for high-demand tech careers with industry certifications and real experience.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Certified</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Industry Partners</span>
-                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Job Ready</span>
-                    </div>
-                    <a href="#contact" class="btn-primary">Learn More</a>
-                </div>
+  <!-- COMMUNITY -->
+  <section id="community">
+    <h2>Community Support</h2>
+    <div class="stats">
+      <div class="stat"><h3>24/7</h3><p>Community Support</p></div>
+      <div class="stat"><h3>100%</h3><p>Free Access</p></div>
+      <div class="stat"><h3>50+</h3><p>Expert Mentors</p></div>
+      <div class="stat"><h3>25+</h3><p>Countries</p></div>
+    </div>
+  </section>
 
-                <div class="card p-8 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i data-feather="users" class="h-8 w-8 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Global Hackathons</h3>
-                    <p class="text-gray-600 mb-6">
-                        International competitions where youth solve real-world problems using STEM skills, connecting innovators worldwide.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-4">
-                        <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">Global Events</span>
-                        <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">25+ Countries</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Prizes</span>
-                    </div>
-                    <a href="#contact" class="btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="#programs">Programs</a>
+      <a href="#about">About Us</a>
+      <a href="#projects">Global Impact</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© 2024 SH Tech. All rights reserved. <br>Made with ❤️ for the global tech community</p>
+  </footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="hero-gradient py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">Join Our Global Community</h2>
-            <p class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
-                Open to all ages and skill levels worldwide. Connect with innovators, mentors, and changemakers who are shaping the future of technology.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="mailto:sankar.raj9@gmail.com" class="btn-primary bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-4">
-                    <i data-feather="mail" class="w-5 h-5"></i>
-                    Email Us
-                </a>
-                <a href="#" class="btn-secondary border-white text-white hover:bg-white hover:text-purple-600 text-lg px-8 py-4">
-                    <i data-feather="message-circle" class="w-5 h-5"></i>
-                    Join Discord
-                </a>
-            </div>
-            
-            <!-- Social Proof -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">24/7</div>
-                    <div class="text-purple-200">Community Support</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">100%</div>
-                    <div class="text-purple-200">Free Access</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">50+</div>
-                    <div class="text-purple-200">Expert Mentors</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-2">25+</div>
-                    <div class="text-purple-200">Countries</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FEATHER ICONS -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      feather.replace();
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Company Info -->
-                <div class="md:col-span-1">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                            <i data-feather="cpu" class="h-6 w-6 text-white"></i>
-                        </div>
-                        <span class="text-xl font-bold">SH Tech</span>
-                    </div>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Advancing AI education and open-source innovation for global impact. Building the future through accessible technology education.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/shtech" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-feather="github" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://twitter.com/shtech" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-feather="twitter" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/shtech" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-feather="linkedin" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://youtube.com/shtech" class="text-gray-400 hover:text-white transition-colors">
-                            <i data-feather="youtube" class="w-6 h-6"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Programs -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Programs</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#programs" class="text-gray-300 hover:text-white transition-colors">AI/ML Mastery</a></li>
-                        <li><a href="#programs" class="text-gray-300 hover:text-white transition-colors">QA Automation</a></li>
-                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Kids STEM Academy</a></li>
-                        <li><a href="#programs" class="text-gray-300 hover:text-white transition-colors">Career Mentorship</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Company -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Company</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors">Global Impact</a></li>
-                        <li><a href="https://sankarraj-subramani.github.io/sankarraj-resume-website/" target="_blank" class="text-gray-300 hover:text-white transition-colors">Founder</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Newsletter -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Stay Updated</h3>
-                    <p class="text-gray-300 mb-4">Get the latest updates on our programs and initiatives.</p>
-                    <form class="space-y-3" id="newsletter-form">
-                        <input 
-                            type="email" 
-                            placeholder="Enter your email" 
-                            class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500"
-                            required
-                        >
-                        <button 
-                            type="submit" 
-                            class="btn-primary w-full justify-center"
-                        >
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Bottom Bar -->
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">© 2024 SH Tech. All rights reserved.</p>
-                <p class="text-gray-500 text-sm mt-4 md:mt-0">Made with ❤️ for the global tech community</p>
-            </div>
-        </div>
-    </footer>
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMobileMenu = document.getElementById('close-mobile-menu');
 
-    <script>
-        // Initialize Feather icons
-        feather.replace();
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+      });
 
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
+      closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
+      // Close mobile menu on link click
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
         });
-
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stats-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current);
-                    }
-                }, 20);
-            });
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    
-                    // Trigger counter animation for stats
-                    if (entry.target.querySelector('.stats-number')) {
-                        setTimeout(animateCounters, 500);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe animated elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Active navigation highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id]');
-
-        function highlightNavigation() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Listen for scroll events
-        window.addEventListener('scroll', highlightNavigation);
-
-        // Newsletter form submission
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            if (email) {
-                // Simulate success
-                alert('Thank you for subscribing! We\'ll keep you updated with our latest programs.');
-                this.querySelector('input[type="email"]').value = '';
-            }
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.3s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Button click effects
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create ripple effect
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Performance optimization: throttle scroll events
-        let ticking = false;
-        function updateOnScroll() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    highlightNavigation();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', updateOnScroll);
-
-        // Initialize animations on page load
-        setTimeout(() => {
-            document.querySelectorAll('.fade-in').forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.1}s`;
-                el.classList.add('animate');
-            });
-        }, 100);
-    </script>
-
-    <style>
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .animate {
-            animation-play-state: running !important;
-        }
-    </style>
+      });
+    });
+  </script>
 </body>
 </html>
