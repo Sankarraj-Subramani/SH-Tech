@@ -73,16 +73,16 @@
 
     /* MOBILE MENU */
     .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      height: 100%;
-      background: var(--dark);
-      color: #fff;
-      padding: 2rem 1rem;
-      transition: right 0.3s ease;
-      z-index: 999;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background: var(--dark);
+  color: #fff;
+  padding: 2rem 1rem;
+  transition: right 0.4s cubic-bezier(.77,0,.18,1);
+  z-index: 999;
     }
 
     .mobile-menu.active {
@@ -90,12 +90,13 @@
     }
 
     .mobile-menu button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.8rem;
-      cursor: pointer;
-      margin-bottom: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
     }
 
     .mobile-menu ul {
@@ -138,17 +139,20 @@
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.2s ease;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(26,115,232,0.08);
     }
 
     .btn:hover {
-      background: #0c5ed9;
+  background: #0c5ed9;
+  transform: translateY(-2px) scale(1.04);
     }
 
     /* STATS */
@@ -198,11 +202,17 @@
       border-radius: 8px;
       padding: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .card h3 {
       margin-bottom: 1rem;
       color: var(--primary);
+      }
+
+      .card:hover {
+        box-shadow: 0 6px 24px rgba(26,115,232,0.12);
+        transform: translateY(-4px) scale(1.03);
     }
 
     /* FOOTER */
@@ -256,6 +266,11 @@
     </nav>
   </header>
 
+    <!-- NAVBAR CTA -->
+    <div style="position: absolute; right: 2rem; top: 1.2rem;">
+      <a href="#contact" class="btn" aria-label="Get Started">Get Started</a>
+    </div>
+
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="mobile-menu">
     <button id="close-mobile-menu"><i data-feather="x"></i></button>
@@ -271,12 +286,14 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <h2>Global AI & Innovation Institute</h2>
-    <p>Advancing AI education and open-source innovation worldwide through cutting-edge programs and community-driven initiatives.</p>
-    <div class="btn-group">
-      <a href="#programs" class="btn">Explore Programs</a>
-      <a href="#contact" class="btn">Get Started</a>
-    </div>
+      <h2>Welcome to SH Tech</h2>
+      <h3 style="font-weight:400; color:#1a73e8; margin-bottom:1rem;">Empowering Global Innovation in AI</h3>
+      <img src="https://undraw.co/api/illustrations/ai-innovation.svg" alt="AI Innovation" style="max-width:320px; width:100%; margin:1.5rem auto; display:block;" />
+      <p style="font-size:1.15rem; margin-bottom:2rem;">Join a vibrant community advancing AI education and open-source innovation worldwide. Discover programs, mentorship, and resources designed for every learner and innovator.</p>
+      <div class="btn-group">
+        <a href="#programs" class="btn" aria-label="Explore Programs">Explore Programs</a>
+        <a href="#contact" class="btn" aria-label="Get Started">Get Started</a>
+      </div>
   </section>
 
   <!-- STATS -->
@@ -301,14 +318,17 @@
     <p>Making advanced technology accessible to everyone through world-class education, innovative frameworks, and transformative programs.</p>
     <div class="grid grid-3">
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="user-check" style="color:#1a73e8;"></i></div>
         <h3>Free Career Guidance</h3>
         <p>Personalized mentoring for students, professionals, and career changers in AI/ML and QA fields. Specialized STEM programs for kids aged 8-18.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="code" style="color:#1a73e8;"></i></div>
         <h3>Open-Source Innovation</h3>
         <p>Frameworks like AutoTestX and GenQAChat-RAG-AI, trusted by Fortune 500 companies and available freely to all developers.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="globe" style="color:#1a73e8;"></i></div>
         <h3>Global Impact</h3>
         <p>Strengthening workforce diversity, AI safety, and infrastructure resilience across 25+ countries through strategic partnerships.</p>
       </div>
@@ -320,14 +340,17 @@
     <h2>Our Programs Creating Pathways to Success</h2>
     <div class="grid grid-3">
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="cpu" style="color:#1a73e8;"></i></div>
         <h3>AI/ML Mastery Track</h3>
         <p>Comprehensive curriculum covering ML, deep learning, and neural networks with projects.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="settings" style="color:#1a73e8;"></i></div>
         <h3>QA Automation Excellence</h3>
         <p>Advanced frameworks, automation tools, and QA practices for modern applications.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="activity" style="color:#1a73e8;"></i></div>
         <h3>Kids STEM Academy</h3>
         <p>Interactive STEM education for ages 8-18, fostering creativity and problem-solving.</p>
       </div>
@@ -339,14 +362,17 @@
     <h2>Open Source & Global Initiatives</h2>
     <div class="grid grid-3">
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="users" style="color:#1a73e8;"></i></div>
         <h3>Professional Mentorship</h3>
         <p>Guiding teams to solve real-world challenges in finance, healthcare, and aviation.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="trending-up" style="color:#1a73e8;"></i></div>
         <h3>Career Development</h3>
         <p>Interactive workshops and programs to accelerate technical and career growth.</p>
       </div>
       <div class="card">
+        <div style="text-align:center; margin-bottom:0.5rem;"><i data-feather="award" style="color:#1a73e8;"></i></div>
         <h3>Global Hackathons</h3>
         <p>Competitions where youth solve global problems using STEM skills worldwide.</p>
       </div>
@@ -363,6 +389,12 @@
   <section id="contact">
     <h2>Join Our Global Community</h2>
     <p>Connect with innovators, mentors, and changemakers who are shaping the future of technology.</p>
+    <form style="max-width:400px;margin:2rem auto 1rem;display:flex;flex-direction:column;gap:1rem;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding:0.8rem;border-radius:5px;border:1px solid #ccc;">
+      <input type="email" name="email" placeholder="Your Email" required style="padding:0.8rem;border-radius:5px;border:1px solid #ccc;">
+      <textarea name="message" placeholder="Your Message" required style="padding:0.8rem;border-radius:5px;border:1px solid #ccc;min-height:80px;"></textarea>
+      <button type="submit" class="btn" style="width:100%;">Send Message</button>
+    </form>
     <div class="btn-group">
       <a href="mailto:info@shtech.org" class="btn">Email Us</a>
       <a href="https://discord.gg/" target="_blank" class="btn">Join Discord</a>
@@ -397,6 +429,23 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       feather.replace();
+
+        // Highlight current section in navbar
+        const sections = document.querySelectorAll('section, .stats');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        function activateNav() {
+          let index = sections.length;
+          while(--index && window.scrollY + 80 < sections[index].offsetTop) {}
+          navLinks.forEach((link) => link.classList.remove('active'));
+          if(navLinks[index]) navLinks[index].classList.add('active');
+        }
+        activateNav();
+        window.addEventListener('scroll', activateNav);
+
+        // Accessibility: add aria-labels to nav links
+        navLinks.forEach(link => {
+          link.setAttribute('aria-label', link.textContent + ' section');
+        });
 
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
